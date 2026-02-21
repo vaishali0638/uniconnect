@@ -1,0 +1,120 @@
+.activity-page {
+    flex: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 32px 24px 64px;
+    animation: fadeInUp 0.4s ease;
+}
+
+.activity-header {
+    margin-bottom: 24px;
+}
+
+.activity-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.activity-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.activity-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.activity-timeline {
+    position: relative;
+    padding-left: 32px;
+}
+
+.activity-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+
+.activity-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    position: relative;
+}
+
+.activity-item+.activity-item {
+    border-top: none;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    border: 2px solid var(--bg);
+}
+
+.activity-icon.primary {
+    background: var(--primary-bg);
+}
+
+.activity-icon.success {
+    background: var(--success-bg);
+}
+
+.activity-icon.warning {
+    background: var(--warning-bg);
+}
+
+.activity-icon.info {
+    background: var(--info-bg);
+}
+
+.activity-content {
+    flex: 1;
+    padding-top: 4px;
+}
+
+.activity-content p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.activity-user {
+    font-weight: 700;
+    color: var(--text-primary) !important;
+}
+
+.activity-project {
+    font-weight: 600;
+    color: var(--primary) !important;
+}
+
+.activity-time {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .activity-page {
+        padding: 20px 16px 48px;
+    }
+}

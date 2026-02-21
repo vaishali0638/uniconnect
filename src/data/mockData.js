@@ -1,5 +1,5 @@
 // ============================================================
-// UniConnect: Campus Hub — Mock Data
+// UniConnect: Campus Hub — Mock Data (Phase 2)
 // ============================================================
 
 export const departments = [
@@ -106,7 +106,23 @@ export const projects = [
         rating: 4.5,
         ratingCount: 22,
         commentCount: 15,
-        status: 'active',
+        status: 'in-progress',
+        resources: [
+            { id: 1, name: 'Project Proposal.pdf', type: 'pdf', url: '#', addedBy: 1 },
+            { id: 2, name: 'Campus Floor Plans', type: 'link', url: 'https://example.com/plans', addedBy: 2 },
+            { id: 3, name: 'AR Framework Comparison.xlsx', type: 'spreadsheet', url: '#', addedBy: 1 },
+        ],
+        milestones: [
+            { id: 1, title: 'Project Proposal & Literature Review', dueDate: '2026-01-15', status: 'completed', description: 'Complete proposal and survey existing solutions.' },
+            { id: 2, title: 'Data Collection & Floor Mapping', dueDate: '2026-02-15', status: 'completed', description: 'Map all campus buildings and collect spatial data.' },
+            { id: 3, title: 'Computer Vision Model Training', dueDate: '2026-03-15', status: 'in-progress', description: 'Train CV model to recognize indoor landmarks and pathways.' },
+            { id: 4, title: 'AR Interface Development', dueDate: '2026-04-15', status: 'upcoming', description: 'Build real-time AR overlay using A-Frame/ARCore.' },
+            { id: 5, title: 'User Testing & Iteration', dueDate: '2026-05-15', status: 'upcoming', description: 'Deploy beta and collect user feedback from 100+ testers.' },
+        ],
+        joinRequests: [
+            { userId: 3, status: 'pending', message: 'I\'d love to contribute GIS mapping skills!', timestamp: '1 day ago' },
+            { userId: 5, status: 'accepted', message: 'Can help with simulation modeling.', timestamp: '3 days ago' },
+        ],
     },
     {
         id: 2,
@@ -121,7 +137,20 @@ export const projects = [
         rating: 4.8,
         ratingCount: 31,
         commentCount: 23,
-        status: 'active',
+        status: 'in-progress',
+        resources: [
+            { id: 4, name: 'Satellite Dataset (20yr)', type: 'dataset', url: '#', addedBy: 3 },
+            { id: 5, name: 'Research Paper Draft', type: 'pdf', url: '#', addedBy: 3 },
+        ],
+        milestones: [
+            { id: 6, title: 'Satellite Data Acquisition', dueDate: '2026-01-10', status: 'completed', description: 'Procure 20-year satellite imagery dataset.' },
+            { id: 7, title: 'Data Processing & Analysis', dueDate: '2026-02-28', status: 'completed', description: 'Process and clean satellite data using GIS tools.' },
+            { id: 8, title: 'Predictive Model Development', dueDate: '2026-03-30', status: 'in-progress', description: 'Build LSTM-based erosion prediction model.' },
+            { id: 9, title: 'Policy Report', dueDate: '2026-05-01', status: 'upcoming', description: 'Draft policy recommendations for coastal protection.' },
+        ],
+        joinRequests: [
+            { userId: 1, status: 'pending', message: 'Can build a data viz dashboard for this!', timestamp: '2 days ago' },
+        ],
     },
     {
         id: 3,
@@ -136,7 +165,16 @@ export const projects = [
         rating: 4.9,
         ratingCount: 45,
         commentCount: 32,
-        status: 'active',
+        status: 'idea',
+        resources: [
+            { id: 6, name: 'GEAC Guidelines.pdf', type: 'pdf', url: '#', addedBy: 4 },
+        ],
+        milestones: [
+            { id: 10, title: 'Literature Review & Gene Identification', dueDate: '2026-02-01', status: 'completed', description: 'Identify target genes for drought resistance.' },
+            { id: 11, title: 'CRISPR Construct Design', dueDate: '2026-04-01', status: 'in-progress', description: 'Design guide RNA and Cas9 constructs.' },
+            { id: 12, title: 'Laboratory Trials', dueDate: '2026-07-01', status: 'upcoming', description: 'Conduct initial gene-editing trials on rice samples.' },
+        ],
+        joinRequests: [],
     },
     {
         id: 4,
@@ -151,7 +189,16 @@ export const projects = [
         rating: 4.2,
         ratingCount: 14,
         commentCount: 8,
-        status: 'active',
+        status: 'in-progress',
+        resources: [
+            { id: 7, name: 'Simulator Codebase', type: 'link', url: 'https://github.com/example/qec-sim', addedBy: 5 },
+        ],
+        milestones: [
+            { id: 13, title: 'Architecture Design', dueDate: '2026-01-20', status: 'completed', description: 'Design simulator architecture and qubit models.' },
+            { id: 14, title: 'Core Simulation Engine', dueDate: '2026-03-01', status: 'in-progress', description: 'Implement error correction algorithms.' },
+            { id: 15, title: 'Benchmarking', dueDate: '2026-05-01', status: 'upcoming', description: 'Benchmark against IBM Qiskit results.' },
+        ],
+        joinRequests: [],
     },
     {
         id: 5,
@@ -166,7 +213,20 @@ export const projects = [
         rating: 4.7,
         ratingCount: 38,
         commentCount: 27,
-        status: 'active',
+        status: 'in-progress',
+        resources: [
+            { id: 8, name: 'Figma Mockups', type: 'link', url: 'https://figma.com/example', addedBy: 1 },
+            { id: 9, name: 'Tech Stack Doc.md', type: 'pdf', url: '#', addedBy: 1 },
+        ],
+        milestones: [
+            { id: 16, title: 'MVP Frontend', dueDate: '2026-02-21', status: 'completed', description: 'Build Phase 1 React frontend with all core pages.' },
+            { id: 17, title: 'Phase 2 Features', dueDate: '2026-03-15', status: 'in-progress', description: 'Add dark mode, DMs, analytics, calendar, etc.' },
+            { id: 18, title: 'Backend Integration', dueDate: '2026-04-15', status: 'upcoming', description: 'Connect to Node.js + MongoDB backend.' },
+        ],
+        joinRequests: [
+            { userId: 3, status: 'pending', message: 'Want to help add environmental data features!', timestamp: '3 hours ago' },
+            { userId: 4, status: 'rejected', message: 'Interested in the project feedback system.', timestamp: '5 days ago' },
+        ],
     },
     {
         id: 6,
@@ -181,7 +241,12 @@ export const projects = [
         rating: 4.0,
         ratingCount: 10,
         commentCount: 6,
-        status: 'active',
+        status: 'idea',
+        resources: [],
+        milestones: [
+            { id: 19, title: 'Market Research', dueDate: '2026-03-01', status: 'in-progress', description: 'Survey existing analytics tools and user needs.' },
+        ],
+        joinRequests: [],
     },
     {
         id: 7,
@@ -196,7 +261,17 @@ export const projects = [
         rating: 4.6,
         ratingCount: 19,
         commentCount: 12,
-        status: 'active',
+        status: 'completed',
+        resources: [
+            { id: 10, name: 'Final Report.pdf', type: 'pdf', url: '#', addedBy: 3 },
+            { id: 11, name: 'Sensor Data (CSV)', type: 'dataset', url: '#', addedBy: 5 },
+        ],
+        milestones: [
+            { id: 20, title: 'Sensor Deployment', dueDate: '2025-11-01', status: 'completed', description: 'Install IoT sensors in 5 campus buildings.' },
+            { id: 21, title: 'Data Collection (3 months)', dueDate: '2026-01-31', status: 'completed', description: 'Collect 3 months of energy consumption data.' },
+            { id: 22, title: 'Analysis & Recommendations', dueDate: '2026-02-15', status: 'completed', description: 'Analyze patterns and publish recommendations.' },
+        ],
+        joinRequests: [],
     },
     {
         id: 8,
@@ -211,7 +286,17 @@ export const projects = [
         rating: 4.3,
         ratingCount: 16,
         commentCount: 11,
-        status: 'active',
+        status: 'in-progress',
+        resources: [
+            { id: 12, name: 'Tamil Corpus Dataset', type: 'dataset', url: '#', addedBy: 2 },
+        ],
+        milestones: [
+            { id: 23, title: 'Corpus Collection', dueDate: '2026-01-15', status: 'completed', description: 'Collect 50K+ documents in Tamil, Telugu, Malayalam.' },
+            { id: 24, title: 'Model Fine-tuning', dueDate: '2026-03-15', status: 'in-progress', description: 'Fine-tune multilingual BERT on regional corpora.' },
+        ],
+        joinRequests: [
+            { userId: 6, status: 'pending', message: 'Can help with content analysis methodologies.', timestamp: '4 days ago' },
+        ],
     },
 ];
 
@@ -247,7 +332,7 @@ export const comments = [
         id: 4,
         projectId: 1,
         authorId: 5,
-        text: 'The AR component is really interesting. What framework are you planning to use — ARCore or a web-based solution like A-Frame?',
+        text: 'The AR component is really interesting. What framework are you planning to use — ARCore or a web-based solution like A-Frame? @Ananya',
         timestamp: '20 min ago',
         parentId: null,
         upvotes: 4,
@@ -274,7 +359,7 @@ export const comments = [
         id: 7,
         projectId: 2,
         authorId: 4,
-        text: 'This is incredible work, Priya. The interdisciplinary nature of this project is exactly what our university needs. Happy to connect you with our bioinformatics team for data analysis support.',
+        text: 'This is incredible work, @Priya. The interdisciplinary nature of this project is exactly what our university needs. Happy to connect you with our bioinformatics team for data analysis support.',
         timestamp: '2 hours ago',
         parentId: null,
         upvotes: 9,
@@ -309,39 +394,189 @@ export const comments = [
 ];
 
 export const notifications = [
+    { id: 1, text: 'Dr. Ravi Menon commented on your project "AI-Powered Campus Navigation"', time: '1 hour ago', read: false, type: 'comment' },
+    { id: 2, text: 'Priya Nair requested to join "UniConnect: Campus Hub Platform"', time: '3 hours ago', read: false, type: 'join' },
+    { id: 3, text: 'Your project received a 5-star rating from Dr. Kavitha Iyer', time: '5 hours ago', read: true, type: 'rating' },
+    { id: 4, text: 'New project posted in Computer Science department', time: '1 day ago', read: true, type: 'project' },
+    { id: 5, text: 'Arjun Desai mentioned you in a comment on "Quantum Error Correction Simulator"', time: '2 days ago', read: true, type: 'mention' },
+];
+
+// Faculty reviews (structured rubric ratings)
+export const facultyReviews = [
     {
         id: 1,
-        text: 'Dr. Ravi Menon commented on your project "AI-Powered Campus Navigation"',
-        time: '1 hour ago',
-        read: false,
-        type: 'comment',
+        projectId: 1,
+        reviewerId: 2,
+        innovation: 4,
+        feasibility: 5,
+        impact: 5,
+        presentation: 4,
+        overallComment: 'A well-thought-out proposal with strong real-world applicability. The accessibility focus is commendable. Consider partnership with the admin office for floor plan data.',
+        timestamp: '1 day ago',
     },
     {
         id: 2,
-        text: 'Priya Nair requested to join "UniConnect: Campus Hub Platform"',
-        time: '3 hours ago',
-        read: false,
-        type: 'join',
+        projectId: 2,
+        reviewerId: 4,
+        innovation: 5,
+        feasibility: 4,
+        impact: 5,
+        presentation: 5,
+        overallComment: 'Outstanding interdisciplinary work. The methodology is rigorous and the scope is perfectly manageable. This could lead to a high-impact publication.',
+        timestamp: '2 days ago',
     },
     {
         id: 3,
-        text: 'Your project received a 5-star rating from Dr. Kavitha Iyer',
-        time: '5 hours ago',
-        read: true,
-        type: 'rating',
+        projectId: 5,
+        reviewerId: 2,
+        innovation: 4,
+        feasibility: 4,
+        impact: 5,
+        presentation: 4,
+        overallComment: 'The platform concept is solid and addresses a genuine need. Focus on scalability and ensure the feedback system is moderated effectively.',
+        timestamp: '3 days ago',
     },
     {
         id: 4,
-        text: 'New project posted in Computer Science department',
-        time: '1 day ago',
-        read: true,
-        type: 'project',
+        projectId: 3,
+        reviewerId: 4,
+        innovation: 5,
+        feasibility: 3,
+        impact: 5,
+        presentation: 4,
+        overallComment: 'Highly innovative approach. The primary challenge will be regulatory clearance — recommend starting the GEAC application process early.',
+        timestamp: '5 days ago',
+    },
+];
+
+// Direct messages
+export const conversations = [
+    {
+        id: 1,
+        participants: [1, 2],
+        messages: [
+            { id: 1, senderId: 2, text: 'Hi Ananya, I reviewed your Navigation project proposal. Very impressive!', timestamp: '2 hours ago' },
+            { id: 2, senderId: 1, text: 'Thank you, Dr. Menon! Your feedback on the accessibility angle was really helpful.', timestamp: '1 hour ago' },
+            { id: 3, senderId: 2, text: 'I have some contacts in the admin office who manage the campus maps. Shall I set up a meeting?', timestamp: '45 min ago' },
+            { id: 4, senderId: 1, text: 'That would be amazing! I\'m free Tuesday or Thursday afternoon.', timestamp: '30 min ago' },
+            { id: 5, senderId: 2, text: 'Perfect, I\'ll coordinate and send you a calendar invite. Also, consider applying for the ICSR grant — deadline is next month.', timestamp: '15 min ago' },
+        ],
+    },
+    {
+        id: 2,
+        participants: [1, 3],
+        messages: [
+            { id: 6, senderId: 3, text: 'Hey Ananya! I saw your Navigation project — could we combine it with our coastline monitoring field data?', timestamp: '3 hours ago' },
+            { id: 7, senderId: 1, text: 'That\'s a great idea, Priya! The GIS data from your project would make the navigation much richer.', timestamp: '2 hours ago' },
+            { id: 8, senderId: 3, text: 'Let\'s meet at the library tomorrow? I can show you the GIS layers we\'ve mapped so far.', timestamp: '1 hour ago' },
+        ],
+    },
+    {
+        id: 3,
+        participants: [1, 6],
+        messages: [
+            { id: 9, senderId: 6, text: 'Hi! I just joined the UniConnect project. Excited to contribute with business strategy!', timestamp: '1 day ago' },
+            { id: 10, senderId: 1, text: 'Welcome aboard, Meera! We definitely need help positioning this for the university admin.', timestamp: '20 hours ago' },
+        ],
+    },
+    {
+        id: 4,
+        participants: [1, 5],
+        messages: [
+            { id: 11, senderId: 5, text: '@Ananya — the quantum simulator could use a web interface. Know any good React devs? 😄', timestamp: '4 days ago' },
+            { id: 12, senderId: 1, text: 'Ha! I might know someone 😄. Let me finish the campus nav MVP first, then let\'s talk!', timestamp: '3 days ago' },
+        ],
+    },
+];
+
+// Activity feed
+export const activityFeed = [
+    { id: 1, type: 'project_created', userId: 1, projectId: 1, text: 'created a new project', timestamp: '2 hours ago' },
+    { id: 2, type: 'comment', userId: 2, projectId: 1, text: 'commented on', timestamp: '1 hour ago' },
+    { id: 3, type: 'join_request', userId: 3, projectId: 5, text: 'requested to join', timestamp: '3 hours ago' },
+    { id: 4, type: 'review', userId: 4, projectId: 2, text: 'left a faculty review on', timestamp: '2 hours ago' },
+    { id: 5, type: 'milestone', userId: 1, projectId: 1, text: 'completed milestone "Data Collection" in', timestamp: '5 hours ago' },
+    { id: 6, type: 'rating', userId: 4, projectId: 1, text: 'rated 5 stars on', timestamp: '5 hours ago' },
+    { id: 7, type: 'project_created', userId: 3, projectId: 2, text: 'created a new project', timestamp: '5 hours ago' },
+    { id: 8, type: 'join_accept', userId: 2, projectId: 1, text: 'accepted Arjun Desai to', timestamp: '1 day ago' },
+    { id: 9, type: 'resource', userId: 3, projectId: 2, text: 'uploaded a resource to', timestamp: '1 day ago' },
+    { id: 10, type: 'comment', userId: 6, projectId: 5, text: 'commented on', timestamp: '2 days ago' },
+    { id: 11, type: 'milestone', userId: 3, projectId: 7, text: 'completed milestone "Analysis & Recommendations" in', timestamp: '3 days ago' },
+    { id: 12, type: 'project_created', userId: 5, projectId: 4, text: 'created a new project', timestamp: '5 days ago' },
+];
+
+// Events & workshops
+export const events = [
+    {
+        id: 1,
+        title: 'Inter-departmental Research Symposium 2026',
+        description: 'Annual symposium showcasing research from all departments. Present your projects, get feedback from faculty, and network with peers.',
+        date: '2026-03-15',
+        time: '09:00 AM - 05:00 PM',
+        location: 'Main Auditorium, PU Campus',
+        type: 'symposium',
+        organizer: 'Research & Development Cell',
+        tags: ['Research', 'Networking', 'All Departments'],
+        attendees: [1, 2, 3, 4, 5, 6],
+    },
+    {
+        id: 2,
+        title: 'AI/ML Workshop: Building with TensorFlow',
+        description: 'Hands-on workshop covering TensorFlow basics, model training, and deployment. Bring your laptop!',
+        date: '2026-03-01',
+        time: '02:00 PM - 05:00 PM',
+        location: 'CS Lab 3, Block A',
+        type: 'workshop',
+        organizer: 'CS Department',
+        tags: ['AI/ML', 'TensorFlow', 'Hands-on'],
+        attendees: [1, 5],
+    },
+    {
+        id: 3,
+        title: 'Green Campus Hackathon',
+        description: 'A 24-hour hackathon focused on building tech solutions for environmental sustainability on campus. Open to all departments.',
+        date: '2026-03-22',
+        time: '10:00 AM (24 hours)',
+        location: 'Innovation Center',
+        type: 'hackathon',
+        organizer: 'Env. Studies + CS Departments',
+        tags: ['Hackathon', 'Sustainability', 'Interdisciplinary'],
+        attendees: [1, 3, 5],
+    },
+    {
+        id: 4,
+        title: 'CRISPR Technology Seminar',
+        description: 'Guest lecture by Dr. Suresh Kumar from IISc on the latest advancements in CRISPR-Cas9 gene editing and its applications in agriculture.',
+        date: '2026-02-28',
+        time: '11:00 AM - 01:00 PM',
+        location: 'Biotech Seminar Hall',
+        type: 'seminar',
+        organizer: 'Dr. Kavitha Iyer',
+        tags: ['CRISPR', 'Biotechnology', 'Guest Lecture'],
+        attendees: [4],
     },
     {
         id: 5,
-        text: 'Arjun Desai mentioned you in a comment on "Quantum Error Correction Simulator"',
-        time: '2 days ago',
-        read: true,
-        type: 'mention',
+        title: 'Startup Pitch Day',
+        description: 'Student startups pitch their ideas to a panel of industry mentors and potential investors. Top 3 ideas get incubation support.',
+        date: '2026-04-05',
+        time: '10:00 AM - 04:00 PM',
+        location: 'Management Studies Block',
+        type: 'competition',
+        organizer: 'Entrepreneurship Cell',
+        tags: ['Startups', 'Pitching', 'Entrepreneurship'],
+        attendees: [6, 1],
+    },
+    {
+        id: 6,
+        title: 'Quantum Computing Study Circle',
+        description: 'Weekly study group for quantum computing enthusiasts. This week: Surface codes for quantum error correction.',
+        date: '2026-02-25',
+        time: '04:00 PM - 06:00 PM',
+        location: 'Physics Common Room',
+        type: 'study-group',
+        organizer: 'Arjun Desai',
+        tags: ['Quantum Computing', 'Study Group', 'Physics'],
+        attendees: [5, 1],
     },
 ];
