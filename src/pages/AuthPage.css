@@ -50,16 +50,12 @@
 }
 
 .auth-brand-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: var(--radius-lg);
-    background: var(--primary-gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    font-size: 1.8rem;
-    box-shadow: var(--shadow-primary);
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+    margin: 0 auto 12px;
+    background: transparent;
 }
 
 .auth-brand h1 {
@@ -254,4 +250,9 @@
 .demo-user-role.faculty {
     background: var(--success-bg);
     color: var(--success);
+}
+
+.demo-user-role.admin {
+    background: #fee2e2;
+    color: #ef4444;
 }

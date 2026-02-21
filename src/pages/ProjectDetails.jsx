@@ -20,13 +20,26 @@ export default function ProjectDetails() {
     const [replyingTo, setReplyingTo] = useState(null);
     const [replyText, setReplyText] = useState('');
     const [upvotedIds, setUpvotedIds] = useState(new Set());
+    const [userRating, setUserRating] = useState(0);
 
     const projectComments = useMemo(
         () => comments.filter((c) => c.projectId === Number(id)),
         [comments, id]
     );
 
-    const topLevel = projectComments.filter((c) => !c.parentId);
+    const topLevel = useMemo(() => {
+        const rootComments = projectComments.filter((c) => !c.parentId);
+        return rootComments.sort((a, b) => {
+            const authorA = users.find((u) => u.id === a.authorId);
+            const authorB = users.find((u) => u.id === b.authorId);
+            const isFacA = authorA?.role === 'faculty';
+            const isFacB = authorB?.role === 'faculty';
+
+            if (isFacA && !isFacB) return -1;
+            if (!isFacA && isFacB) return 1;
+            return b.upvotes - a.upvotes;
+        });
+    }, [projectComments]);
     const getReplies = (parentId) => projectComments.filter((c) => c.parentId === parentId);
 
     if (!project) {
@@ -110,7 +123,12 @@ export default function ProjectDetails() {
                         <div className="comment-header">
                             <span className="comment-author">{cAuthor?.name || 'Unknown'}</span>
                             {cAuthor && (
-                                <span className={`comment-role ${cAuthor.role}`}>{cAuthor.role}</span>
+                                <>
+                                    <span className={`comment-role ${cAuthor.role}`}>{cAuthor.role}</span>
+                                    {cAuthor.role === 'faculty' && (
+                                        <span className="faculty-recognized-badge">🎓 Faculty Recognized</span>
+                                    )}
+                                </>
                             )}
                             <span className="comment-time">{comment.timestamp}</span>
                         </div>
@@ -253,6 +271,23 @@ export default function ProjectDetails() {
                         </div>
                     </div>
                 </form>
+
+                {/* Rating Option */}
+                <div className="pd-rating-section">
+                    <h4>Rate this project:</h4>
+                    <div className="star-rating-interactive">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <button
+                                key={star}
+                                type="button"
+                                className={`star-btn ${userRating >= star ? 'active' : ''}`}
+                                onClick={() => setUserRating(star)}
+                            >
+                                ★
+                            </button>
+                        ))}
+                    </div>
+                </div>
 
                 {/* Thread */}
                 <div className="comment-thread">

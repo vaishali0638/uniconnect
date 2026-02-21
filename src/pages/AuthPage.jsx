@@ -32,7 +32,7 @@ export default function AuthPage() {
             <div className="auth-container">
                 {/* Branding */}
                 <div className="auth-brand">
-                    <div className="auth-brand-icon">🎓</div>
+                    <img src="/logo.png" alt="UniConnect Logo" className="auth-brand-icon" />
                     <h1>
                         Uni<span>Connect</span>
                     </h1>
@@ -54,6 +54,12 @@ export default function AuthPage() {
                             onClick={() => setRole('faculty')}
                         >
                             👨‍🏫 Faculty
+                        </button>
+                        <button
+                            className={`auth-role-btn ${role === 'admin' ? 'active' : ''}`}
+                            onClick={() => setRole('admin')}
+                        >
+                            🛡️ Admin
                         </button>
                     </div>
 

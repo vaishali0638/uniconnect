@@ -385,3 +385,57 @@
     height: 38px;
     font-size: 0.85rem;
 }
+
+/* Faculty Badge */
+.faculty-recognized-badge {
+    background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 4px rgba(255, 140, 0, 0.3);
+}
+
+/* Rating Section */
+.pd-rating-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pd-rating-section h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.star-rating-interactive {
+    display: flex;
+    gap: 6px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.star-btn:hover,
+.star-btn.active {
+    color: #fbbf24;
+    transform: scale(1.15);
+}

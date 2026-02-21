@@ -90,6 +90,19 @@ export const users = [
         collaborationStatus: 'offering',
         collaborationNote: 'Can help tech projects with go-to-market strategy and business planning.',
     },
+    {
+        id: 7,
+        name: 'System Admin',
+        email: 'admin@pu.edu',
+        role: 'admin',
+        department: 'University Administration',
+        avatar: null,
+        initials: 'AD',
+        bio: 'Platform maintainer and system administrator for UniConnect.',
+        skills: ['System Admin', 'Support'],
+        collaborationStatus: 'offering',
+        collaborationNote: 'Contact me for platform support.',
+    },
 ];
 
 export const projects = [
