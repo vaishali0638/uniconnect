@@ -1,11 +1,16 @@
 import { useState, useMemo } from 'react';
-import { projects, departments } from '../data/mockData';
+import { useAuth } from '../context/AuthContext';
+import { projects as initialProjects, departments } from '../data/mockData';
 import ProjectCard from '../components/ProjectCard';
+import CreateProjectModal from '../components/CreateProjectModal';
 import './Dashboard.css';
 
 export default function Dashboard() {
+    const { currentUser } = useAuth();
+    const [projects, setProjects] = useState(initialProjects);
     const [selectedDept, setSelectedDept] = useState('All Departments');
     const [keyword, setKeyword] = useState('');
+    const [showCreateModal, setShowCreateModal] = useState(false);
 
     const filteredProjects = useMemo(() => {
         return projects.filter((p) => {
@@ -19,16 +24,35 @@ export default function Dashboard() {
                 p.tags.some((t) => t.toLowerCase().includes(kw));
             return matchesDept && matchesKeyword;
         });
-    }, [selectedDept, keyword]);
+    }, [projects, selectedDept, keyword]);
+
+    const handleCreateProject = (newProject) => {
+        const projectWithAuthor = {
+            ...newProject,
+            authorId: currentUser.id,
+            members: [currentUser.id],
+        };
+        setProjects((prev) => [projectWithAuthor, ...prev]);
+    };
 
     return (
         <div className="dashboard">
             {/* Hero search */}
             <div className="dashboard-hero">
                 <div className="dashboard-hero-content">
-                    <h2>Discover & Collaborate</h2>
-                    <p>Explore research projects from across Pondicherry University</p>
-                    <div className="dashboard-search">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                            <h2>Discover & Collaborate</h2>
+                            <p>Explore research projects from across Pondicherry University</p>
+                        </div>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => setShowCreateModal(true)}
+                        >
+                            + Post Project
+                        </button>
+                    </div>
+                    <div className="dashboard-search" style={{ marginTop: '24px' }}>
                         <select
                             value={selectedDept}
                             onChange={(e) => setSelectedDept(e.target.value)}
@@ -77,6 +101,14 @@ export default function Dashboard() {
                     </div>
                 )}
             </div>
+
+            {showCreateModal && (
+                <CreateProjectModal
+                    onClose={() => setShowCreateModal(false)}
+                    onCreate={handleCreateProject}
+                />
+            )}
         </div>
     );
 }
+

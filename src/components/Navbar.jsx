@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { notifications as initialNotifications } from '../data/mockData';
 import './Navbar.css';
 
@@ -12,6 +13,19 @@ const BellIcon = () => (
     </svg>
 );
 
+const MoonIcon = () => (
+    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+const SunIcon = () => (
+    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" />
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
 const notifIcons = {
     comment: '💬',
     join: '🤝',
@@ -20,8 +34,19 @@ const notifIcons = {
     mention: '📣',
 };
 
+const navLinks = [
+    { path: '/', label: 'Feed', icon: '🏠' },
+    { path: '/kanban', label: 'Kanban', icon: '📋' },
+    { path: '/events', label: 'Events', icon: '📅' },
+    { path: '/analytics', label: 'Analytics', icon: '📊' },
+    { path: '/messages', label: 'Messages', icon: '💬' },
+    { path: '/activity', label: 'Activity', icon: '📡' },
+];
+
 export default function Navbar() {
     const { currentUser, logout } = useAuth();
+    const { darkMode, toggleTheme } = useTheme();
+    const location = useLocation();
     const [showNotifications, setShowNotifications] = useState(false);
     const [notifications, setNotifications] = useState(initialNotifications);
     const dropdownRef = useRef(null);
@@ -47,17 +72,38 @@ export default function Navbar() {
 
     return (
         <nav className="navbar">
-            <Link to="/" className="navbar-logo">
-                <div className="navbar-logo-icon">🎓</div>
-                <div className="navbar-logo-text">
-                    Uni<span>Connect</span>
+            <div className="navbar-left">
+                <Link to="/" className="navbar-logo">
+                    <div className="navbar-logo-icon">🎓</div>
+                    <div className="navbar-logo-text">
+                        Uni<span>Connect</span>
+                    </div>
+                </Link>
+
+                <div className="navbar-links">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.path}
+                            to={link.path}
+                            className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                        >
+                            <span className="nav-link-icon">{link.icon}</span>
+                            <span className="nav-link-text">{link.label}</span>
+                        </Link>
+                    ))}
                 </div>
-            </Link>
+            </div>
 
             <div className="navbar-right">
-                <span className="navbar-greeting">
-                    Welcome, <strong>{currentUser.name.split(' ')[0]}!</strong>
-                </span>
+                {/* Theme Toggle */}
+                <button
+                    className="notification-btn"
+                    onClick={toggleTheme}
+                    aria-label="Toggle Theme"
+                    title="Toggle Dark Mode"
+                >
+                    {darkMode ? <SunIcon /> : <MoonIcon />}
+                </button>
 
                 {/* Notification Bell */}
                 <div className="notification-wrapper" ref={dropdownRef}>
@@ -106,3 +152,4 @@ export default function Navbar() {
         </nav>
     );
 }
+
