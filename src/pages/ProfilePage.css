@@ -1,0 +1,238 @@
+.profile-page {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 32px 24px 64px;
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Profile header card */
+.profile-header {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.profile-banner {
+    height: 120px;
+    background: var(--primary-gradient);
+    position: relative;
+}
+
+.profile-info {
+    padding: 0 28px 28px;
+    position: relative;
+}
+
+.profile-avatar-wrapper {
+    margin-top: -40px;
+    margin-bottom: 16px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    background: var(--primary-gradient);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: 4px solid var(--surface);
+    box-shadow: var(--shadow-md);
+}
+
+.profile-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.profile-role-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+}
+
+.profile-role-badge.student {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+.profile-role-badge.faculty {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.profile-dept {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-bio {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Skills section */
+.profile-section {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-chip {
+    padding: 6px 14px;
+    background: var(--primary-bg);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.skill-chip:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Collaboration corner */
+.collab-corner {
+    border-left: 4px solid var(--primary);
+}
+
+.collab-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.collab-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.collab-indicator.looking {
+    background: var(--success);
+}
+
+.collab-indicator.offering {
+    background: var(--primary);
+}
+
+.collab-status-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.collab-note {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+}
+
+/* Projects list */
+.profile-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-project-item:hover {
+    border-color: var(--primary-lighter);
+    background: var(--primary-bg);
+    transform: translateX(4px);
+}
+
+.profile-project-info {
+    flex: 1;
+}
+
+.profile-project-info h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.profile-project-info p {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-project-arrow {
+    font-size: 1.2rem;
+    color: var(--text-tertiary);
+    transition: all var(--transition-fast);
+}
+
+.profile-project-item:hover .profile-project-arrow {
+    color: var(--primary);
+    transform: translateX(4px);
+}

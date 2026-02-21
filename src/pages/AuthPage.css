@@ -1,0 +1,257 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative blobs */
+.auth-page::before,
+.auth-page::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.auth-page::before {
+    width: 400px;
+    height: 400px;
+    background: var(--primary-lighter);
+    top: -100px;
+    right: -100px;
+}
+
+.auth-page::after {
+    width: 350px;
+    height: 350px;
+    background: #93c5fd;
+    bottom: -80px;
+    left: -80px;
+}
+
+.auth-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.auth-brand {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-brand-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow-primary);
+}
+
+.auth-brand h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.auth-brand h1 span {
+    color: var(--primary);
+}
+
+.auth-brand p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.auth-card {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+}
+
+/* Role toggle tabs */
+.auth-role-toggle {
+    display: flex;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    margin-bottom: 28px;
+    gap: 4px;
+}
+
+.auth-role-btn {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.auth-role-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: var(--shadow-primary);
+}
+
+.auth-role-btn:not(.active):hover {
+    background: var(--surface-hover);
+}
+
+/* Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.auth-field input {
+    height: 46px;
+}
+
+.auth-submit {
+    width: 100%;
+    padding: 13px;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* Mode toggle */
+.auth-toggle {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.auth-toggle button {
+    color: var(--primary);
+    font-weight: 600;
+    background: none;
+    margin-left: 4px;
+}
+
+.auth-toggle button:hover {
+    text-decoration: underline;
+}
+
+/* User selector for demo */
+.auth-demo-selector {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+}
+
+.auth-demo-selector p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.demo-users {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.demo-user-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    text-align: left;
+}
+
+.demo-user-btn:hover {
+    border-color: var(--primary-light);
+    background: var(--primary-bg);
+    transform: translateX(4px);
+}
+
+.demo-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--primary-gradient);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.demo-user-info {
+    flex: 1;
+}
+
+.demo-user-info strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.demo-user-info span {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+.demo-user-role {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+}
+
+.demo-user-role.student {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+.demo-user-role.faculty {
+    background: var(--success-bg);
+    color: var(--success);
+}
