@@ -27,20 +27,15 @@ export default function ProjectDetails() {
         [comments, id]
     );
 
-    const topLevel = useMemo(() => {
-        const rootComments = projectComments.filter((c) => !c.parentId);
-        return rootComments.sort((a, b) => {
-            const authorA = users.find((u) => u.id === a.authorId);
-            const authorB = users.find((u) => u.id === b.authorId);
-            const isFacA = authorA?.role === 'faculty';
-            const isFacB = authorB?.role === 'faculty';
+    const topLevel = projectComments.filter((c) => !c.parentId);
+    const getReplies = (parentId) => projectComments.filter((c) => c.parentId === parentId);
 
-            if (isFacA && !isFacB) return -1;
-            if (!isFacA && isFacB) return 1;
-            return b.upvotes - a.upvotes;
+    const isFacultyRecognized = useMemo(() => {
+        return projectComments.some((c) => {
+            const author = users.find((u) => u.id === c.authorId);
+            return author?.role === 'faculty';
         });
     }, [projectComments]);
-    const getReplies = (parentId) => projectComments.filter((c) => c.parentId === parentId);
 
     if (!project) {
         return (
@@ -123,12 +118,7 @@ export default function ProjectDetails() {
                         <div className="comment-header">
                             <span className="comment-author">{cAuthor?.name || 'Unknown'}</span>
                             {cAuthor && (
-                                <>
-                                    <span className={`comment-role ${cAuthor.role}`}>{cAuthor.role}</span>
-                                    {cAuthor.role === 'faculty' && (
-                                        <span className="faculty-recognized-badge">🎓 Faculty Recognized</span>
-                                    )}
-                                </>
+                                <span className={`comment-role ${cAuthor.role}`}>{cAuthor.role}</span>
                             )}
                             <span className="comment-time">{comment.timestamp}</span>
                         </div>
@@ -195,6 +185,9 @@ export default function ProjectDetails() {
                         <span className="pd-author-name">{author?.name}</span>
                     </div>
                     <span className="pd-time">{project.timestamp}</span>
+                    {isFacultyRecognized && (
+                        <span className="faculty-recognized-badge" style={{ marginLeft: '8px' }}>🎓 Faculty Recognized</span>
+                    )}
                 </div>
                 <div className="pd-tags">
                     <span className={`tag tag-${deptColors[project.department] || 'blue'}`}>

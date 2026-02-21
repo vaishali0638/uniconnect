@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { projects as initialProjects, departments } from '../data/mockData';
+import { projects as initialProjects, departments, comments, users } from '../data/mockData';
 import ProjectCard from '../components/ProjectCard';
 import CreateProjectModal from '../components/CreateProjectModal';
 import './Dashboard.css';
@@ -12,8 +12,13 @@ export default function Dashboard() {
     const [keyword, setKeyword] = useState('');
     const [showCreateModal, setShowCreateModal] = useState(false);
 
+    const facultyRecognizedIds = useMemo(() => {
+        const facultyUserIds = new Set(users.filter(u => u.role === 'faculty').map(u => u.id));
+        return new Set(comments.filter(c => facultyUserIds.has(c.authorId)).map(c => c.projectId));
+    }, []);
+
     const filteredProjects = useMemo(() => {
-        return projects.filter((p) => {
+        let result = projects.filter((p) => {
             const matchesDept =
                 selectedDept === 'All Departments' || p.department === selectedDept;
             const kw = keyword.toLowerCase();
@@ -24,7 +29,21 @@ export default function Dashboard() {
                 p.tags.some((t) => t.toLowerCase().includes(kw));
             return matchesDept && matchesKeyword;
         });
-    }, [projects, selectedDept, keyword]);
+
+        // Add flag and sort
+        result = result.map(p => ({
+            ...p,
+            isFacultyRecognized: facultyRecognizedIds.has(p.id)
+        }));
+
+        result.sort((a, b) => {
+            if (a.isFacultyRecognized && !b.isFacultyRecognized) return -1;
+            if (!a.isFacultyRecognized && b.isFacultyRecognized) return 1;
+            return 0;
+        });
+
+        return result;
+    }, [projects, selectedDept, keyword, facultyRecognizedIds]);
 
     const handleCreateProject = (newProject) => {
         const projectWithAuthor = {

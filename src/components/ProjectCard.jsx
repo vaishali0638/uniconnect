@@ -62,6 +62,9 @@ export default function ProjectCard({ project, index = 0 }) {
 
             <div className="project-card-meta">
                 <span className={`tag tag-${colorClass} project-card-dept`}>{project.department}</span>
+                {project.isFacultyRecognized && (
+                    <span className="faculty-recognized-badge" style={{ marginLeft: '4px' }}>🎓 Faculty Recognized</span>
+                )}
                 <span className="project-card-time">{project.timestamp}</span>
             </div>
 
